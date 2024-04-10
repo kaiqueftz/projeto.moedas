@@ -26,6 +26,16 @@ botaoConverter.addEventListener("click", converter);
 const botaoLimpar = document.getElementById("botao-limpar");
 botaoLimpar.addEventListener("click", limpar);
 
+const botaoAceitaMensagem = document.getElementById("botao-aceita-mensagem");
+botaoAceitaMensagem.addEventListener("click", aceitarMensagem);
+
+console.log(localStorage);
+
+if(localStorage.getItem("aceitouCookie") == "Ok, estou de acordo!") {
+    const divMensagemUsuario = document.getElementById("mensagem-usuario");
+    divMensagemUsuario.classList.add("oculto");
+}
+
 let ultimoResultado = "";
 
 const valorEntrada = document.getElementById("valorEntrada");
@@ -71,6 +81,17 @@ function inverter() {
     document.getElementById("moeda2").value = valorMoeda1;
 }
 
+function aceitarMensagem() {
+    const divMensagemUsuario = document.getElementById("mensagem-usuario");
+    divMensagemUsuario.classList.add("oculto")
+
+    localStorage.setItem("aceitouCookie", "Ok, estou de acordo!");
+}
+
+function salvarResultadoLocalStorage(resultado) {
+
+}
+
 function converter() {
     let valorUsuario = document.getElementById("valorEntrada").value;
 
@@ -96,12 +117,25 @@ function converter() {
     let paragrafoResultado = document.getElementById("resultado");
     paragrafoResultado.textContent = simbolo + " " + resultado.toFixed(2);
 
+    let objetoResultado = {
+        valorDoUsuario: valorUsuario,
+        valorMoeda1: moeda1,
+        valorMoeda2: moeda2,
+        valorResultado: resultado
+    }
+        console.log(objetoResultado);
+
+        //Converter Objeto JS para texto (JSON) antes de abrir no LocalStorage
+        localStorage.setItem("historico", objetoResultado)
+
+
+
     // Remover moedas existentes antes de adicionar novas
     const moedasContainer = document.getElementById("moedas");
     moedasContainer.innerHTML = "";
 
     // Adicionando moedas ao container de acordo com o valor digitado pelo usuário
-    const numeroMoedas = Math.min(valorUsuario, 100); // Limitando a um máximo de 1000 moedas
+    const numeroMoedas = Math.min(valorUsuario, 30); // Limitando a um máximo de 1000 moedas
     for (let i = 0; i < numeroMoedas; i++) {
         const moeda = document.createElement("div");
         moeda.classList.add("moeda");
