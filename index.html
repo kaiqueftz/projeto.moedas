@@ -1,12 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script> <!-- defer para garantir que o script seja carregado após a renderização do DOM -->
+    <link rel="stylesheet" href="style.css"> <!-- defer para garantir que o script seja carregado após a renderização do DOM -->
     <title>Conversão de Moeda</title>
 </head>
 <body id="imagem-fundo">  
@@ -28,7 +26,11 @@
         <button id="botao-limpar">Limpar</button>
         <p id="resultado"></p>
     </div>
-    <div id="moedas"></div> <!-- Container para as moedas -->
+    <div id="moedas"></div> 
+    <div id="mensagem-usuario">
+        <p> Utilize o nosso sistema com moderação</p>
+        <button id="botao-aceita-mensagem">OK, estou de acordo!</button>
+    </div>
+    <script src="./script.js" defer></script>
 </body>
 </html>
-
