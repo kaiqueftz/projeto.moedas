@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script> <!-- defer para garantir que o script seja carregado após a renderização do DOM -->
+    <title>Conversão de Moeda</title>
+</head>
+<body id="imagem-fundo">  
+    <div id="container">
+        <h1 id="title">Conversor de Moedas</h1>
+        <input type="number" id="valorEntrada" placeholder="Digite um valor" >
+        <select name="moeda1" id="moeda1">
+            <option value="real" selected >Real Brasileiro</option>
+            <option value="dolar">Dólar Americano</option>
+            <option value="euro">Euro</option>
+        </select>
+        <button id="botao-inverter">Inverter</button>
+        <select name="moeda2" id="moeda2">
+            <option value="dolar" selected >Dólar Americano</option>
+            <option value="real">Real Brasileiro</option>
+            <option value="euro">Euro</option>
+        </select>
+        <button id="botao-converter">Converter</button>
+        <button id="botao-limpar">Limpar</button>
+        <p id="resultado"></p>
+    </div>
+    <div id="moedas"></div> <!-- Container para as moedas -->
+</body>
+</html>
+
